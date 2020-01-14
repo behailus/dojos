@@ -17,7 +17,7 @@ int equi(int inputArr[], int arrayLen)
             return eqIndex;
         eqIndex++;
     }
-    return 0;
+    return -1;
 }
 
 TEST(EquiTest, EmptyArrayReturnsZero)
@@ -35,5 +35,13 @@ TEST(EquiTest, SampleArray)
     int inputArr[arrayLen] = {2, -3, 4, -2};
     int equiIndex = equi(inputArr, arrayLen);
     int expectedEquiIndex = 1;
+    ASSERT_EQ(expectedEquiIndex, equiIndex);
+}
+TEST(EquiTest, SampleArrayWithNoEquIndex)
+{
+    const int arrayLen = 3;
+    int inputArr[arrayLen] = {2, -3, 4};
+    int equiIndex = equi(inputArr, arrayLen);
+    int expectedEquiIndex = -1;
     ASSERT_EQ(expectedEquiIndex, equiIndex);
 }
